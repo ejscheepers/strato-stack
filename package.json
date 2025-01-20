@@ -16,9 +16,9 @@
     "update-all": "npx npm-check-updates -u && npm install",
     "update-safe": "npx npm-check-updates -u --target minor && npm install",
     "update-router": "npx npm-check-updates -u \"/^@react-router\\/.*$/\" && npm install",
-    "dev:infra": "docker compose -f docker-compose.dev.yml up -d",
-    "dev:infra:down": "docker compose -f docker-compose.dev.yml down",
-    "dev:infra:reset": "docker compose -f docker-compose.dev.yml down -v"
+    "dev:infra": "docker compose -f docker-compose.dev.yaml up -d",
+    "dev:infra:down": "docker compose -f docker-compose.dev.yaml down",
+    "dev:infra:reset": "docker compose -f docker-compose.dev.yaml down -v"
   },
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
