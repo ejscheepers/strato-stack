@@ -1,36 +1,108 @@
-# Welcome to React Router Lite Stack!
+# Strato Stack
 
-📖 See the [React Router docs](https://reactrouter.com) for details on supported features.
+This project is a lightweight stack for building web applications using React Router, React, and Tailwind CSS. It leverages Shadcn components for UI and Drizzle ORM for database interactions with PostgreSQL.
+
+## Installation
+
+First, ensure you have Node.js (>=18.0.0) installed. Then, install the dependencies:
+
+```bash
+npm install
+```
 
 ## Development
 
-Run the Vite dev server:
+Ensure Docker Desktop is running and then run:
 
-```shellscript
+```bash
+npm run dev:infra
+```
+
+To start the development server, run:
+
+```bash
 npm run dev
 ```
 
-## Deployment
+This will start the React Router development server.
 
-First, build your app for production:
+## Building
 
-```sh
+To build the project for production, use:
+
+```bash
 npm run build
 ```
 
-Then run the app in production mode:
+## Starting the Server
 
-```sh
-npm start
+After building, you can start the server with:
+
+```bash
+npm run start
 ```
 
-Now you'll need to pick a host to deploy it to.
+## Database Management
 
-### DIY
+- **Generate Database Migrations**:
+  ```bash
+  npm run db:generate
+  ```
+- **Run Database Migrations**:
+  ```bash
+  npm run db:migrate
+  ```
+- **Check Database Status**:
+  ```bash
+  npm run db:check
+  ```
+- **Open Database Studio**:
+  ```bash
+  npm run db:studio
+  ```
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+## Updating Dependencies
 
-Make sure to deploy the output of `npm run build`
+- **Check for Updates**:
+  ```bash
+  npm run update-check
+  ```
+- **Update All Dependencies**:
+  ```bash
+  npm run update-all
+  ```
+- **Update Safe (Minor Updates Only)**:
+  ```bash
+  npm run update-safe
+  ```
+- **Update React Router Packages**:
+  ```bash
+  npm run update-router
+  ```
 
-- `build/server`
-- `build/client`
+## Infrastructure Management
+
+- **Start Development Infrastructure**:
+  ```bash
+  npm run dev:infra
+  ```
+- **Stop Development Infrastructure**:
+  ```bash
+  npm run dev:infra:down
+  ```
+- **Reset Development Infrastructure**:
+  ```bash
+  npm run dev:infra:reset
+  ```
+
+## Type Checking
+
+To run type checks, execute:
+
+```bash
+npm run typecheck
+```
+
+## License
+
+This project is licensed under the MIT License.
