@@ -1,14 +1,11 @@
-import * as schema from "@/models/schema.server";
-import Database from "better-sqlite3";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import { migrate } from "drizzle-orm/better-sqlite3/migrator";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
 
-const sqlite = new Database(
-  process.env.NODE_ENV === "production" ? "/data/db.sqlite3" : "./db.sqlite3"
-);
-
-export const db = drizzle(sqlite, { schema });
+export const db = drizzle({
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+  },
+});
 
 // Automatically run migrations on startup
-
 migrate(db, { migrationsFolder: "./drizzle" });

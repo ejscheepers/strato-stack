@@ -1,24 +1,17 @@
 import { createId } from "@paralleldrive/cuid2";
-import { sql } from "drizzle-orm";
-import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
-export const user = sqliteTable("user", {
+export const user = pgTable("user", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
-  emailVerified: integer("emailVerified", {
-    mode: "boolean",
-  }).notNull(),
+  emailVerified: boolean("emailVerified").notNull(),
   image: text("image"),
-  createdAt: integer("createdAt", {
-    mode: "timestamp",
-  }).notNull(),
-  updatedAt: integer("updatedAt", {
-    mode: "timestamp",
-  }).notNull(),
+  createdAt: timestamp("createdAt").notNull(),
+  updatedAt: timestamp("updatedAt").notNull(),
 });
 
-export const account = sqliteTable("account", {
+export const account = pgTable("account", {
   id: text("id").primaryKey(),
   accountId: text("accountId").notNull(),
   providerId: text("providerId").notNull(),
@@ -26,70 +19,38 @@ export const account = sqliteTable("account", {
     .notNull()
     .references(() => user.id),
   accessToken: text("accessToken"),
-  accessTokenExpiresAt: integer("accessTokenExpiresAt", {
-    mode: "timestamp",
-  }),
+  accessTokenExpiresAt: timestamp("accessTokenExpiresAt"),
   refreshToken: text("refreshToken"),
-  refreshTokenExpiresAt: integer("refreshTokenExpiresAt", {
-    mode: "timestamp",
-  }),
+  refreshTokenExpiresAt: timestamp("refreshTokenExpiresAt"),
   password: text("password"),
   scope: text("scope"),
-  createdAt: integer("createdAt", {
-    mode: "timestamp",
-  })
-    .notNull()
-    .default(sql`(unixepoch())`),
-  updatedAt: integer("updatedAt", {
-    mode: "timestamp",
-  })
-    .notNull()
-    .default(sql`(unixepoch())`),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+  updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
 
-export const session = sqliteTable("session", {
+export const session = pgTable("session", {
   id: text("id").primaryKey(),
-  expiresAt: integer("expiresAt", {
-    mode: "timestamp",
-  }).notNull(),
+  expiresAt: timestamp("expiresAt").notNull(),
   token: text("token").notNull().default(""),
   ipAddress: text("ipAddress"),
   userAgent: text("userAgent"),
   userId: text("userId")
     .notNull()
     .references(() => user.id),
-  createdAt: integer("createdAt", {
-    mode: "timestamp",
-  })
-    .notNull()
-    .default(sql`(unixepoch())`),
-  updatedAt: integer("updatedAt", {
-    mode: "timestamp",
-  })
-    .notNull()
-    .default(sql`(unixepoch())`),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+  updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
 
-export const verification = sqliteTable("verification", {
+export const verification = pgTable("verification", {
   id: text("id").primaryKey(),
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
-  expiresAt: integer("expiresAt", {
-    mode: "timestamp",
-  }).notNull(),
-  createdAt: integer("createdAt", {
-    mode: "timestamp",
-  })
-    .notNull()
-    .default(sql`(unixepoch())`),
-  updatedAt: integer("updatedAt", {
-    mode: "timestamp",
-  })
-    .notNull()
-    .default(sql`(unixepoch())`),
+  expiresAt: timestamp("expiresAt").notNull(),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+  updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
 
-export const todo = sqliteTable("todo", {
+export const todo = pgTable("todo", {
   id: text("id")
     .$defaultFn(() => createId())
     .primaryKey(),

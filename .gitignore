@@ -3,5 +3,4 @@ data
 /.cache
 /build
 .env
-*.sqlite3
 .react-router/

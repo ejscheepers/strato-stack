@@ -47,17 +47,12 @@ export default function Index() {
           </p>
         </div>
         <div className="bg-white shadow-lg rounded-lg p-6">
-          <h2 className="text-xl font-semibold">Better SQLite</h2>
+          <h2 className="text-xl font-semibold">PostgreSQL</h2>
           <p>
-            Better SQLite is a wrapper around SQLite that provides a more
-            intuitive, promise-based API for working with SQLite databases.
-          </p>
-        </div>
-        <div className="bg-white shadow-lg rounded-lg p-6">
-          <h2 className="text-xl font-semibold">Litestream</h2>
-          <p>
-            Litestream is a tool for replicating SQLite databases to S3. It's
-            used to create backups and provide high availability for SQLite.
+            PostgreSQL is a powerful, open-source object-relational database
+            system that uses and extends the SQL language combined with many
+            features that safely store and scale the most complicated data
+            workloads.
           </p>
         </div>
         <div className="bg-white shadow-lg rounded-lg p-6">

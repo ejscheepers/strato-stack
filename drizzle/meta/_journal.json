@@ -1,33 +1,12 @@
 {
-  "version": "5",
-  "dialect": "sqlite",
+  "version": "7",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1713805128385,
-      "tag": "0000_pink_quicksilver",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1733408426742,
-      "tag": "0001_typical_deadpool",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1733409897691,
-      "tag": "0002_great_skaar",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "6",
-      "when": 1733409907973,
-      "tag": "0003_fuzzy_wolverine",
+      "version": "7",
+      "when": 1737374911625,
+      "tag": "0000_steady_james_howlett",
       "breakpoints": true
     }
   ]

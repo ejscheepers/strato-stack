@@ -5,11 +5,11 @@ export interface SiteDataProps {
 }
 
 const siteData: SiteDataProps = {
-  name: "React Router Lite Stack",
+  name: "Strato Stack",
   // Your website's title and description (meta fields)
-  title: "React Router Lite Stack",
+  title: "Strato Stack",
   description:
-    "React Router Lite Stack is a starter kit for building a modern web application using React Router. It includes a variety of features and tools to help you get started quickly.",
+    "Strato Stack is a modern web development stack for building fast, scalable apps. It implements React Router, Shadcn UI, Tailwind CSS, Drizzle ORM, PostgreSQL, and Better Auth.",
 };
 
 export default siteData;
