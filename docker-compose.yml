@@ -5,10 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "8000:8000"
     environment:
       HOST: 0.0.0.0
-      PORT: 3000
+      PORT: 8000
       NODE_ENV: production
       DOMAIN_URL: ${DOMAIN_URL}
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
@@ -24,7 +24,7 @@ services:
   postgres:
     image: postgres:17
     ports:
-      - "5432:5432"
+      - "8001:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
