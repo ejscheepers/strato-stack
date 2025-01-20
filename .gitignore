@@ -1,0 +1,7 @@
+node_modules
+data
+/.cache
+/build
+.env
+*.sqlite3
+.react-router/
