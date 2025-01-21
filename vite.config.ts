@@ -1,5 +1,6 @@
 import { reactRouter } from "@react-router/dev/vite";
 import autoprefixer from "autoprefixer";
+import esbuild from "esbuild";
 import path from "path";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
@@ -12,6 +13,25 @@ export default defineConfig(({ isSsrBuild }) => ({
           input: "./server/app.ts",
         }
       : undefined,
+  },
+  serverBuildFile: "react-router.js",
+  buildEnd: async () => {
+    await esbuild
+      .build({
+        alias: { "~": "./app" },
+        outfile: "build/server/index.js",
+        entryPoints: ["server/index.ts"],
+        external: ["./build/server/*"],
+        platform: "node",
+        format: "esm",
+        packages: "external",
+        bundle: true,
+        logLevel: "info",
+      })
+      .catch((error: unknown) => {
+        console.error("Error building server:", error);
+        process.exit(1);
+      });
   },
   plugins: [reactRouter(), tsconfigPaths()],
   resolve: {
