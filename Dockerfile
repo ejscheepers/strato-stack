@@ -1,6 +1,3 @@
-# Install curl
-RUN apk --no-cache add curl
-
 FROM node:20-alpine AS development-dependencies-env
 COPY . /app
 WORKDIR /app
@@ -23,6 +20,10 @@ COPY --from=production-dependencies-env /app/node_modules /app/node_modules
 COPY --from=build-env /app/build /app/build
 COPY --from=build-env /app/drizzle /app/drizzle
 WORKDIR /app
+
+# Install curl
+RUN apk --no-cache add curl
+
 CMD ["npm", "run", "start"]
 
 
