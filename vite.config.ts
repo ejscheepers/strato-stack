@@ -14,7 +14,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         }
       : undefined,
   },
-  serverBuildFile: "react-router.js",
+  serverBuildFile: "server.js",
   buildEnd: async () => {
     await esbuild
       .build({
