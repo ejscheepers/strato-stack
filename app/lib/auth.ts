@@ -1,4 +1,4 @@
-import { account, session, user, verification } from "@/models/schema";
+import { account, session, user, verification } from "@/models/schema.server";
 import { db } from "@/utils/db.server";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";

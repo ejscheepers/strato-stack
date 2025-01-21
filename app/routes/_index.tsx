@@ -26,10 +26,6 @@ export default function Index() {
           </p>
         </div>
         <div className="bg-white shadow-lg rounded-lg p-6">
-          <h2 className="text-xl font-semibold">Express Server</h2>
-          <p>Fast, unopinionated, minimalist web framework for Node.js</p>
-        </div>
-        <div className="bg-white shadow-lg rounded-lg p-6">
           <h2 className="text-xl font-semibold">Shadcn UI</h2>
           <p>
             Shadcn UI is a set of components and utilities that make building
