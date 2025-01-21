@@ -10,7 +10,7 @@ import {
   useNavigate,
 } from "react-router";
 
-import "./tailwind.css";
+import "./app.css";
 
 import { type LoaderFunctionArgs, redirect } from "react-router";
 import { Button } from "./components/ui/button";
@@ -26,9 +26,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
   if (session && new URL(request.url).pathname === "/") {
     throw redirect("/dashboard");
   }
-
-  console.log(session?.user?.id);
-
   return { userId: session?.user?.id };
 }
 
