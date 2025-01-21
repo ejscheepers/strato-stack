@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { auth } from "@/lib/auth";
-import { todo } from "@/models/schema.server";
+import { todo } from "@/models/schema";
 import { db } from "@/utils/db.server";
 import { eq, ne } from "drizzle-orm";
 import { useRef } from "react";
