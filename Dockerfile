@@ -1,34 +1,34 @@
-# Use a base image with Node.js
 FROM node:lts-alpine AS base
 WORKDIR /app
 
 # Install curl
 RUN apk --no-cache add curl
 
-# Development dependencies stage
-FROM base AS development-dependencies-env
+FROM base AS build
+
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
 RUN npm ci
 
-# Production dependencies stage
-FROM base AS production-dependencies-env
-COPY package*.json ./
-RUN npm ci --omit=dev
-
-# Build stage
-FROM base AS build-env
+# Copy the rest of the application code
 COPY . .
-COPY --from=development-dependencies-env /app/node_modules ./node_modules
+
+# Build the application
 RUN npm run build
 
-# Runtime stage
 FROM base AS runtime
-WORKDIR /app
-COPY --from=production-dependencies-env /app/node_modules ./node_modules
-COPY --from=build-env /app/build ./build
-COPY --from=build-env /app/server.js ./server.js
-COPY --from=build-env /app/package.json ./package.json
-COPY --from=build-env /app/drizzle ./drizzle
+
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/build/server ./build/server
+COPY --from=build /app/build/client ./build/client
+COPY --from=build /app/package.json ./package.json
+COPY --from=build /app/server.js ./server.js
+
+# Move the drizzle directory to the runtime image
+COPY --from=build /app/drizzle ./drizzle
+
 
 CMD ["npm", "run", "start"]
 
