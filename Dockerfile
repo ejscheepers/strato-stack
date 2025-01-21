@@ -28,11 +28,6 @@ COPY --from=build /app/package.json ./package.json
 # Move the drizzle directory to the runtime image
 COPY --from=build /app/drizzle ./drizzle
 
-ENV HOST=0.0.0.0
-ENV PORT=8000
-ENV NODE_ENV=production
-
-
 EXPOSE 8000
 CMD ["npm", "run", "start"]
 
