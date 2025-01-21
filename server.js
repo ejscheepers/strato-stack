@@ -4,7 +4,7 @@ import express from "express";
 import morgan from "morgan";
 
 // Load environment variables from .env file
-dotenv.config({ path: "./server/.env" });
+dotenv.config();
 
 // Short-circuit the type-checking of the built output.
 const BUILD_PATH = "./build/server/index.js";
