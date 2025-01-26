@@ -12,6 +12,7 @@ const app = express();
 
 app.use(compression());
 app.disable("x-powered-by");
+app.use(morgan("tiny"));
 
 if (DEVELOPMENT) {
   console.log("Starting development server");
@@ -41,8 +42,6 @@ if (DEVELOPMENT) {
   app.use(express.static("build/client", { maxAge: "1h" }));
   app.use(await import(BUILD_PATH).then((mod) => mod.app));
 }
-
-app.use(morgan("tiny"));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
