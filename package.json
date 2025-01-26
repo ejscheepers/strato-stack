@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "tsx server/index.ts",
-    "start": "cross-env NODE_ENV=production node ./build/server/index.js",
+    "dev": "tsx server.ts",
+    "start": "node server.js",
     "typecheck": "react-router typegen && tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
