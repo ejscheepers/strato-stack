@@ -24,6 +24,8 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/build/server ./build/server
 COPY --from=build /app/build/client ./build/client
 COPY --from=build /app/package.json ./package.json
+COPY --from=build server.ts /app/
+
 
 # Move the drizzle directory to the runtime image
 COPY --from=build /app/drizzle ./drizzle

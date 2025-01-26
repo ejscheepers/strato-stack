@@ -6,7 +6,7 @@
   "scripts": {
     "build": "react-router build",
     "dev": "tsx server.ts",
-    "start": "node server.js",
+    "start": "tsx server.ts",
     "typecheck": "react-router typegen && tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
