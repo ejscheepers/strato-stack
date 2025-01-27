@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "tsx server.ts",
-    "start": "tsx server.ts",
+    "dev": "tsx server/server.ts",
+    "start": "tsx server/server.ts",
     "typecheck": "react-router typegen && tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -39,6 +39,7 @@
     "lucide-react": "^0.468.0",
     "morgan": "^1.10.0",
     "pg": "^8.13.1",
+    "pg-boss": "^10.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^7.0.0",

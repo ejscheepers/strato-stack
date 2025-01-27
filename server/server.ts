@@ -2,6 +2,7 @@ import compression from "compression";
 import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
+import PgBoss from "pg-boss";
 
 // Short-circuit the type-checking of the built output.
 const BUILD_PATH = "./build/server/index.js";
@@ -45,4 +46,28 @@ if (DEVELOPMENT) {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+async function pgBoss() {
+  const boss = new PgBoss(process.env.DATABASE_URL!);
+
+  boss.on("error", console.error);
+
+  await boss.start();
+
+  const everyMinuteQueue = "every-minute";
+
+  await boss.createQueue(everyMinuteQueue);
+
+  // Schedule the job to run every minute using a 5-placeholder cron expression
+  await boss.schedule(everyMinuteQueue, "* * * * *");
+
+  await boss.work(everyMinuteQueue, async () => {
+    console.log(`Executing [every-minute] at ${new Date().toISOString()}`);
+  });
+}
+
+pgBoss().catch((err) => {
+  console.log(err);
+  process.exit(1);
 });
