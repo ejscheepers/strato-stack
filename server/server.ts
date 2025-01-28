@@ -3,6 +3,7 @@ import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 import PgBoss from "pg-boss";
+import { checkEnv } from "../app/lib/utils";
 
 // Short-circuit the type-checking of the built output.
 const BUILD_PATH = "../build/server/index.js";
@@ -14,6 +15,7 @@ const app = express();
 app.use(compression());
 app.disable("x-powered-by");
 app.use(morgan("tiny"));
+checkEnv(process.env);
 
 if (DEVELOPMENT) {
   console.log("Starting development server");

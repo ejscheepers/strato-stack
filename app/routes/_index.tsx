@@ -1,14 +1,31 @@
 import siteData from "@/config/siteData.json";
-import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
+import { organization } from "@forge42/seo-tools/structured-data/organization";
+import type { MetaFunction } from "react-router";
 
-export const meta = () => {
-  return [{ title: siteData.title, description: siteData.description }];
+export const meta: MetaFunction = () => {
+  // This utility will under the hood generate the twitter & og title and description tags for you.
+  const meta = generateMeta(
+    {
+      title: siteData.title,
+      description: siteData.description,
+      url: siteData.url,
+    },
+    [
+      {
+        "script:ld+json": organization({
+          "@type": "Organization",
+          name: siteData.name,
+          description: siteData.description,
+          url: siteData.url,
+        }),
+      },
+    ]
+  );
+
+  return meta;
 };
 
-export async function action({ request }: ActionFunctionArgs) {}
-export async function loader({ request }: LoaderFunctionArgs) {
-  return "null";
-}
 export default function Index() {
   return (
     <div className="flex min-h-full flex-1 flex-col sm:px-6 lg:px-8 pt-6 space-y-6 px-3">
