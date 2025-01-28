@@ -83,6 +83,22 @@ export default function Index() {
           <h2 className="text-xl font-semibold">Better Auth</h2>
           <p>The most comprehensive authentication framework for TypeScript.</p>
         </div>
+        <div className="bg-white shadow-lg rounded-lg p-6">
+          <h2 className="text-xl font-semibold">SEO Ready</h2>
+          <p>
+            The {siteData.name} is SEO ready. It automatically generates meta
+            tags, sitemaps, and robots.txt.
+          </p>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-6">
+          <h2 className="text-xl font-semibold">
+            Deploy Anywhere using Docker
+          </h2>
+          <p>
+            The {siteData.name} is ready to be deployed anywhere using Docker.
+            No vendor lock-in.
+          </p>
+        </div>
       </div>
     </div>
   );
