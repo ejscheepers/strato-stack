@@ -2,6 +2,14 @@
 
 This project is a lightweight stack for building web applications using React Router, React, and Tailwind CSS. It leverages Shadcn components for UI and Drizzle ORM for database interactions with PostgreSQL.
 
+## Enter your site's data
+
+=>  'app/config/siteData.json.ts'
+
+## Set up .env variables
+Copy the .env.example file to .env and fill in the variables.
+
+
 ## Installation
 
 First, ensure you have Node.js (>=18.0.0) installed. Then, install the dependencies:
