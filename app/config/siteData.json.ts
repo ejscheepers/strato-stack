@@ -6,11 +6,11 @@ export interface SiteDataProps {
 }
 
 const siteData: SiteDataProps = {
-  name: "Strato Stack 2",
+  name: "Strato Stack",
   // Your website's title and description (meta fields)
-  title: "Strato Stack 2",
+  title: "Strato Stack",
   description:
-    "Strato Stack 2 is a modern web development stack for building fast, scalable apps. It implements React Router, Shadcn UI, Tailwind CSS, Drizzle ORM, PostgreSQL, and Better Auth.",
+    "Strato Stack is a modern web development stack for building fast, scalable apps. It implements React Router, Shadcn UI, Tailwind CSS, Drizzle ORM, PostgreSQL, and Better Auth.",
   url: "https://strato.eugenescheepers.com",
 };
 
