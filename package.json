@@ -11,7 +11,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:check": "drizzle-kit check",
-    "db:studio": "npx drizzle-kit studio",
+    "studio": "npx drizzle-kit studio",
     "update-check": "npx npm-check-updates",
     "update-all": "npx npm-check-updates -u && npm install",
     "update-safe": "npx npm-check-updates -u --target minor && npm install",
