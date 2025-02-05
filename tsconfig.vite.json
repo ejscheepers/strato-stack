@@ -4,7 +4,8 @@
       "app/**/*",
       "app/**/.server/**/*",
       "app/**/.client/**/*",
-      "server/**/*"
+      "server/**/*",
+      "components.json"
     ],
     "compilerOptions": {
       "composite": true,
