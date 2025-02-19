@@ -1,5 +1,5 @@
 import { generateSitemap } from "@forge42/seo-tools/sitemap";
-import { LoaderFunctionArgs } from "react-router";
+import type { LoaderFunctionArgs } from "react-router";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const domainUrl = new URL(request.url).origin;

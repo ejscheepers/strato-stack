@@ -1,3 +1,4 @@
+import { testServer } from "@/lib/utils";
 import compression from "compression";
 import "dotenv/config";
 import express from "express";
@@ -27,7 +28,7 @@ if (DEVELOPMENT) {
   app.use(viteDevServer.middlewares);
   app.use(async (req, res, next) => {
     try {
-      const source = await viteDevServer.ssrLoadModule("./server/app.ts");
+      const source = await viteDevServer.ssrLoadModule("./app/server/app.ts");
       return await source.app(req, res, next);
     } catch (error) {
       if (typeof error === "object" && error instanceof Error) {
@@ -66,6 +67,7 @@ async function pgBoss() {
 
   await boss.work(everyMinuteQueue, async () => {
     console.log(`Executing [every-minute] at ${new Date().toISOString()}`);
+    testServer();
   });
 }
 
