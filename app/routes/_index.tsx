@@ -4,7 +4,7 @@ import { auth } from "@/lib/auth";
 import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { organization } from "@forge42/seo-tools/structured-data/organization";
 import type { MetaFunction } from "react-router";
-import type { Route } from "./+types/_index";
+import { Route } from "./+types/_index";
 
 export const meta: MetaFunction = () => {
   // This utility will under the hood generate the twitter & og title and description tags for you.

@@ -1,5 +1,5 @@
 import { generateRobotsTxt } from "@forge42/seo-tools/robots";
-import type { LoaderFunctionArgs } from "react-router";
+import { LoaderFunctionArgs } from "react-router";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const isProductionDeployment = process.env.NODE_ENV === "production";

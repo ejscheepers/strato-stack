@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "tsx app/server/server.ts",
-    "start": "tsx app/server/server.ts",
+    "dev": "tsx server/server.ts",
+    "start": "tsx server/server.ts",
     "typecheck": "react-router typegen && tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
