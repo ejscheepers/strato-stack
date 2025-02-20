@@ -6,11 +6,14 @@
 
 import { PassThrough } from "node:stream";
 
-import type { AppLoadContext, EntryContext } from "react-router";
 import { createReadableStreamFromReadable } from "@react-router/node";
-import { ServerRouter } from "react-router";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import type { AppLoadContext, EntryContext } from "react-router";
+import { ServerRouter } from "react-router";
+import { checkEnv } from "./lib/utils";
+
+checkEnv(process.env);
 
 // Reject/cancel all pending promises after 5 seconds
 export const streamTimeout = 5000;
