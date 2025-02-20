@@ -4,7 +4,7 @@ import { auth } from "@/lib/auth";
 import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { organization } from "@forge42/seo-tools/structured-data/organization";
 import type { MetaFunction } from "react-router";
-import { Route } from "./+types/_index";
+import type { Route } from "./+types/_index";
 
 export const meta: MetaFunction = () => {
   // This utility will under the hood generate the twitter & og title and description tags for you.
@@ -67,13 +67,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
             <p>
               A user-obsessed, standards-focused, multi-strategy router you can
               deploy anywhere.
-            </p>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold">Express Server</h2>
-            <p>
-              Fast, unopinionated, minimalist web framework for Node.js - fully
-              Typescript ready.
             </p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6">
