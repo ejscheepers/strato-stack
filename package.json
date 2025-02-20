@@ -46,9 +46,7 @@
   "devDependencies": {
     "@react-router/dev": "^7.0.0",
     "@react-router/fs-routes": "^7.0.0",
-    "@types/compression": "^1.7.5",
     "@types/express": "^5.0.0",
-    "@types/morgan": "^1.9.9",
     "@types/node": "^22.10.1",
     "@types/pg": "^8.11.10",
     "@types/react": "^18.3.13",
