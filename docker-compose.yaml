@@ -15,7 +15,7 @@ services:
       BETTER_AUTH_URL: ${BETTER_AUTH_URL}
       DATABASE_URL: ${DATABASE_URL}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/resources/up"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/resources/up"]
       interval: 30s
       timeout: 10s
       retries: 3
