@@ -5,17 +5,17 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "6000:6000"
     environment:
       HOST: 0.0.0.0
-      PORT: 8000
+      PORT: 6000
       NODE_ENV: production
       DOMAIN_URL: ${DOMAIN_URL}
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
       BETTER_AUTH_URL: ${BETTER_AUTH_URL}
       DATABASE_URL: ${DATABASE_URL}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/resources/up"]
+      test: ["CMD", "curl", "-f", "http://localhost:6000/resources/up"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -24,7 +24,7 @@ services:
   postgres:
     image: postgres:17
     ports:
-      - "8001:5432"
+      - "6001:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
