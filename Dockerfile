@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS base
+FROM node:23-alpine AS base
 WORKDIR /app
 
 # Install curl
