@@ -11,11 +11,11 @@ export const db = drizzle({
 });
 
 // Direct connection to PostgreSQL for migrations
-const migrationPool = new Pool({
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL?.replace("pgbouncer", "postgres"), // Direct PostgreSQL port
 });
 
-const migrationDb = drizzle(migrationPool);
+export const dbDirect = drizzle(pool);
 
 // Automatically run migrations on startup
-migrate(migrationDb, { migrationsFolder: "./drizzle" });
+migrate(dbDirect, { migrationsFolder: "./drizzle" });
