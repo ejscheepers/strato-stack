@@ -21,10 +21,9 @@ services:
       retries: 3
     depends_on:
       - postgres
+      - pgbouncer
   postgres:
     image: postgres:17
-    ports:
-      - "6001:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -36,5 +35,24 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+  pgbouncer:
+    image: edoburu/pgbouncer
+    environment:
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_HOST=postgres
+      - DB_NAME=${POSTGRES_DB}
+      - AUTH_TYPE=scram-sha-256
+      - POOL_MODE=session
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - "pg_isready -h 127.0.0.1 -p 5432 -U $$POSTGRES_USER"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    depends_on:
+      - postgres
 volumes:
   strato_postgres_express_data:
