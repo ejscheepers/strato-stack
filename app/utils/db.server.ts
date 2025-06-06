@@ -1,6 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
-import { Pool } from "pg";
+import pkg from "pg";
+const { Pool } = pkg;
 
 // Regular connection through PgBouncer for application operations
 export const db = drizzle({

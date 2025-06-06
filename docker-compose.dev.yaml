@@ -17,7 +17,7 @@ services:
       - DB_HOST=postgres
       - DB_NAME=${POSTGRES_DB}
       - AUTH_TYPE=scram-sha-256
-      - POOL_MODE=session
+      - POOL_MODE=transaction
     ports:
       - "5432:5432"
     healthcheck:
