@@ -40,7 +40,7 @@ services:
     environment:
       - DB_USER=${POSTGRES_USER}
       - DB_PASSWORD=${POSTGRES_PASSWORD}
-      - DB_HOST=postgres
+      - DB_HOST=postgres-qgsc480sgsokgog8w8gkg0cg
       - DB_NAME=${POSTGRES_DB}
       - AUTH_TYPE=scram-sha-256
       - POOL_MODE=session
