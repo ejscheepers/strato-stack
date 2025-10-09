@@ -1,3 +1,4 @@
+import { startScheduledTasks } from "@/tasks/tasks.server";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
 
@@ -11,3 +12,6 @@ export const db = drizzle({
 
 // Automatically run migrations on startup
 migrate(db, { migrationsFolder: "./drizzle" });
+
+// Automatically start scheduled tasks on startup
+startScheduledTasks();

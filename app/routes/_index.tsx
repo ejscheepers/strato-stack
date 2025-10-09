@@ -119,6 +119,14 @@ export default function Index({ loaderData }: Route.ComponentProps) {
               No vendor lock-in.
             </p>
           </div>
+          <div className="bg-white shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold">Redis Queue</h2>
+            <p>
+              Redis queue for caching and repeating tasks using BullMQ. A
+              powerful job queue library for Node.js that handles task
+              scheduling and processing.
+            </p>
+          </div>
         </div>
       </div>
     </>

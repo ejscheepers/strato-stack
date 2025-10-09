@@ -11,7 +11,7 @@ import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import type { AppLoadContext, EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
-import { checkEnv } from "./lib/utils";
+import { checkEnv } from "./lib/env-variables";
 
 checkEnv(process.env);
 
