@@ -1,6 +1,6 @@
 # Strato Stack
 
-This project is a lightweight stack for building web applications using React Router, React, and Tailwind CSS. It leverages Shadcn components for UI and Drizzle ORM for database interactions with PostgreSQL.
+This project is a lightweight stack for building web applications using React Router, React, and Tailwind CSS. It leverages Shadcn components for UI, Drizzle ORM for database interactions with PostgreSQL, and BullMQ with Redis for job queues and caching.
 
 ## Enter your site's data
 
