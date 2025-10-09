@@ -7,7 +7,6 @@ export function checkEnv(env: NodeJS.ProcessEnv) {
     "POSTGRES_USER",
     "POSTGRES_PASSWORD",
     "POSTGRES_DB",
-    "POSTGRES_HOST",
     "PORT",
     "NODE_ENV",
     "REDIS_URL",
