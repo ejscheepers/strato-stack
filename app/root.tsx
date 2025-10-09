@@ -52,7 +52,7 @@ export default function App() {
       </head>
       <body className="h-screen bg-slate-100 text-slate-900">
         <div className="h-full flex flex-col min-h-0">
-          <div className="flex-grow min-h-0 h-full">
+          <div className="grow min-h-0 h-full">
             <Outlet />
             <Toaster />
           </div>
