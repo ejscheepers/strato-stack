@@ -8,6 +8,11 @@ export function loader() {
   return data(null, { status: 404 });
 }
 
+export function action() {
+  // Return 404 status without throwing - this renders the component with proper HTTP status
+  return data(null, { status: 404 });
+}
+
 export default function CatchAll() {
   const navigate = useNavigate();
 
