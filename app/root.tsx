@@ -1,15 +1,15 @@
 import {
+  isRouteErrorResponse,
   Links,
+  type LoaderFunctionArgs,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
-  type ShouldRevalidateFunctionArgs,
 } from "react-router";
-
+import type { Route } from "./+types/root";
 import "./app.css";
-
-import { type LoaderFunctionArgs, redirect } from "react-router";
 import { Toaster } from "./components/ui/toaster";
 import { auth } from "./lib/auth";
 
@@ -22,23 +22,29 @@ export async function loader({ request }: LoaderFunctionArgs) {
   }
 }
 
-export function shouldRevalidate({
-  formAction,
-  currentUrl,
-  nextUrl,
-}: ShouldRevalidateFunctionArgs) {
-  // Check for form actions
-  if (formAction && ["/login", "/signup"].includes(formAction)) {
-    return true;
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error)) {
+    return (
+      <>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <p>{error.data}</p>
+      </>
+    );
+  } else if (error instanceof Error) {
+    //Sentry.captureException(error);
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
+      </div>
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
   }
-
-  // Check for logout parameter in the URL
-  const nextUrlObj = new URL(nextUrl);
-  if (nextUrlObj.searchParams.get("logout") === "true") {
-    return true;
-  }
-
-  return false;
 }
 
 export default function App() {

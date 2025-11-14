@@ -10,4 +10,5 @@ export default [
   route("robots.txt", "./routes/robots[.]txt.ts"),
   route("sitemap.xml", "./routes/sitemap[.]xml.ts"),
   route("sitemap-index.xml", "./routes/sitemap-index[.]xml.ts"),
+  route("*", "./routes/404.tsx"),
 ] satisfies RouteConfig;
