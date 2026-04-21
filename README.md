@@ -12,7 +12,7 @@ Copy the .env.example file to .env and fill in the variables.
 
 ## Installation
 
-First, ensure you have Node.js (>=18.0.0) installed. Then, install the dependencies:
+First, ensure you have Node.js (`^20.19.0 || >=22.12.0`) installed. Then, install the dependencies:
 
 ```bash
 npm install
