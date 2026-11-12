@@ -9,7 +9,7 @@ import { PassThrough } from "node:stream";
 import { createReadableStreamFromReadable } from "@react-router/node";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import type { AppLoadContext, EntryContext } from "react-router";
+import type { EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
 import { checkEnv } from "./lib/env-variables";
 
@@ -22,11 +22,7 @@ export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  reactRouterContext: EntryContext,
-  // This is ignored so we can keep it in the template for visibility.  Feel
-  // free to delete this parameter in your app if you're not using it!
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  loadContext: AppLoadContext
+  reactRouterContext: EntryContext
 ) {
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(
