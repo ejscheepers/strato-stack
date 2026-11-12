@@ -32,7 +32,7 @@
     "@react-router/serve": "^7.18.5",
     "@tailwindcss/vite": "^4.3.5",
     "better-auth": "^1.7.22",
-    "bullmq": "^5.75.2",
+    "bullmq": "^5.81.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "ioredis": "^5.10.1",
