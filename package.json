@@ -54,7 +54,7 @@
     "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.6.2",
     "drizzle-kit": "^0.31.11",
-    "drizzle-orm": "^0.45.2",
+    "drizzle-orm": "^0.45.4",
     "postcss": "^8.5.32",
     "tailwindcss": "^4.3.5",
     "typescript": "^6.0.3",
